@@ -1,6 +1,9 @@
 <template>
     <div id="app" style="perspective: 3000px;">
-        <transition :name="fade" v-if="fade == 'default'" mode="out-in">
+        <transition :name="fade" v-if="fade == 'default'">
+            <router-view></router-view>
+        </transition>
+        <transition :name="fade" v-else-if="fade == 'flip'" mode="out-in">
             <router-view></router-view>
         </transition>
         <transition :name="fade" v-else>
@@ -23,19 +26,38 @@ export default {
 
 .default-enter-active,
 .default-leave-active {
-    transition: all 0.30s linear 0s;
+    transition: all 0.3s;
 }
 
 .default-enter {
-    -webkit-transform: rotateY(-90deg) scale(0.8, 0.8);
+    -webkit-transform: scale(0, 0)
 }
 
 .default-leave-to
 /* .fade-leave-active below version 2.1.8 */
 
 {
+    -webkit-transform: scale(0, 0)
+}
+
+
+.flip-enter-active,
+.default-leave-active {
+    transition: all 0.30s linear 0s;
+}
+
+.flip-enter {
+    -webkit-transform: rotateY(-90deg) scale(0.8, 0.8);
+}
+
+.flip-leave-to
+/* .fade-leave-active below version 2.1.8 */
+
+{
     -webkit-transform: rotateY(90deg) scale(0.8, 0.8);
 }
+
+
 
 .content {
   position: absolute;

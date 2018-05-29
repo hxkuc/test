@@ -73,7 +73,7 @@ export default {
       }
     },
     gotoHome () {
-      this.$store.dispatch('changeTransition', 'default')
+      this.$store.dispatch('changeTransition', 'flip')
       this.$router.push('/')
     },
     login () {
