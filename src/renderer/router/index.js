@@ -7,8 +7,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'landing-page',
-      component: require('@/components/LandingPage').default
+      name: 'mainWindow',
+      component: require('@/components/public/mainWindow.vue').default
     },
     {
       path: '*',
@@ -28,6 +28,21 @@ export default new Router({
       path: '/dataWindow',
       name: 'dataWindow',
       component: require('@/components/dataWindow').default
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: require('@/components/login').default
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: require('@/components/register').default
+    },
+    {
+      path: '/answer',
+      name: 'answer',
+      component: require('@/components/answer').default
     }
   ]
 })

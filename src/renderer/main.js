@@ -7,8 +7,12 @@ import store from './store'
 
 import Win from 'electron-vue-windows'
 import './assets/icon/iconfont.css'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+
 Win.init()
 Vue.prototype.$Win = Win
+Vue.use(ElementUI)
 
 if (!process.env.IS_WEB) Vue.use(require('vue-electron'))
 Vue.http = Vue.prototype.$http = axios
