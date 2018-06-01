@@ -42,7 +42,7 @@ export default {
 
 
 .flip-enter-active,
-.default-leave-active {
+.flip-leave-active {
     transition: all 0.30s linear 0s;
 }
 
