@@ -5,27 +5,40 @@
             <div class="flexBody">
                 <div style="display: flex;height:100%;align-items: center;justify-content: space-around;flex-direction: column;padding: 10px">
                   <div class="rowLine">
-                    <span style="width: 80px">发起者：</span> 
+                    <span style="width: 80px">问：</span> 
                     <h3>这里是题目的标题</h3>
                   </div>
 
-                  <div style="display: flex;flex-direction: column;background: rgba(0, 0, 0, 0.2);border-radius: 3px;width: 100%;padding: 10px;box-sizing: border-box;justify-content: center;">
+                  <div style="background: rgba(0, 0, 0, 0.2);border-radius: 3px;width: 100%;padding: 10px;box-sizing: border-box;justify-content: center;height: 100%;
+    overflow-y: auto;">
 
-                    <el-checkbox label="答案aqwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww" style="padding: 5px 0">1212</el-checkbox>
-                    <el-checkbox label="答案b" style="padding: 5px 0"></el-checkbox>
-                    <el-checkbox label="答案c" style="padding: 5px 0"></el-checkbox>
-                    <el-checkbox label="答案d" style="padding: 5px 0"></el-checkbox>
+                    <div class="checkBoxStyle">
+                      <span class="checkSpan">A</span><el-checkbox style="display: flex;align-items: center;">eeelkjflsdfdsklfjdsklfjdsfrtretioretdfkfifkfd[pdldfdgkffkfffffffffffffffffffffffffffffffffffffffffffffffffffffff
+                      </el-checkbox>
+                    </div>
+
+                    <div class="checkBoxStyle">
+                      <span class="checkSpan">B</span><el-checkbox style="display: flex;align-items: center;">eeelkjflsdfdsklfjdsklfjdsfrtretioretdfkfifkfd[pdldfdgkffkfffffffffffffffffffffffffffffffffffffffffffffffffffffff
+                      </el-checkbox>
+                    </div>
+
+                    <div class="checkBoxStyle">
+                      <span class="checkSpan">C</span><el-checkbox style="display: flex;align-items: center;">eeelkjflsdfdsklfjdsklfjdsfrtretioretdfkfifkfd[pdldfdgkffkfffffffffffffffffffffffffffffffffffffffffffffffffffffff
+                      </el-checkbox>
+                    </div>
+
+                    <div class="checkBoxStyle">
+                      <span class="checkSpan">D</span><el-checkbox style="display: flex;align-items: center;">eeelkjflsdfdsklfjdsklfjdsfrtretioretdfkfifkfd[pdldfdgkffkfffffffffffffffffffffffffffffffffffffffffffffffffffffff
+                      </el-checkbox>
+                    </div>
                   </div>
                 </div>
 
-                <div style="display: flex;justify-content: center;height: 60px;align-items: center;padding: 10px 0">
-                  <div>12:32</div>
+                <div style="display: flex;justify-content: center;height: 60px;align-items: center;padding: 0 10px 10px 10px;">
+                  <div style="font-size: 37px;">12:32</div>
                   <div style="display: flex;align-items: center;">
                     
                     <i class="iconfont icon-tijiao" style="font-size: 40px;margin: 0 50px;"></i>
-                    
-                  </div>
-                  <div>
                     
                   </div>
                 </div>
@@ -84,5 +97,18 @@ export default {
 }
 .iconfont{
   cursor: pointer;
+}
+.checkBoxStyle{
+  display: flex;
+  align-items: center;
+  padding: 5px 0
+}
+.el-checkbox, .el-checkbox__input {
+    white-space: normal;
+}
+.checkSpan{
+  font-weight: 900;
+  margin-right: 6px;
+  margin-bottom: 3px;
 }
 </style>
