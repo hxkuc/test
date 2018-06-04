@@ -1,22 +1,19 @@
 <template>
-  <div class="header">
-    <userHeadInfo></userHeadInfo>
-    <div class="rightBox">
-      <i @click="hideWindow" class="rightIcon iconfont icon-zuixiaohua"></i>
-      <i @click="closeWindow" class="rightIconLast rightIcon iconfont icon-guanbi5"></i>
-      <!-- <i onclick="fullWindow()" class="rightIcon iconfont el-icon-h-zuidahua"></i> -->
+    <div class="header">
+        <div class="rightBox">
+            <i @click="hideWindow" class="rightIcon iconfont icon-zuixiaohua"></i>
+            <i @click="closeWindow" class="rightIconLast rightIcon iconfont icon-guanbi5"></i>
+            <!-- <i onclick="fullWindow()" class="rightIcon iconfont el-icon-h-zuidahua"></i> -->
+        </div>
     </div>
-  </div>
 </template>
-
 <script>
 import { remote } from 'electron'
-import userHeadInfo from '@/components/public/userHeadInfo.vue'
 export default {
-  name: 'mainHead',
+  name: 'renderHead',
   methods: {
     closeWindow () {
-      remote.app.quit()
+      this.$Win.closeWin()
     },
     fullWindow () {
       let win = remote.getCurrentWindow()
@@ -38,25 +35,21 @@ export default {
       } else {
         win.minimize()
       }
-    },
-    gotoHome () {
-      this.$store.dispatch('changeTransition', 'flip')
-      this.$router.push('/login')
     }
-  },
-  components: {userHeadInfo}
+  }
 }
 </script>
-
 <style>
-  .header {
-    height: 60px;
+.header {
+    height: 30px;
     -webkit-app-region: drag;
     display: flex;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
     padding: 2px;
+    justify-content: flex-end;
 }
+
 .rightIcon {
     float: right;
     font-size: 18px;
@@ -73,9 +66,9 @@ export default {
     padding-right: 5px;
 }
 
-.rightBox{
-	width: 25%;
-	display: flex;
-	justify-content: flex-end;
+.rightBox {
+    width: 25%;
+    display: flex;
+    justify-content: flex-end;
 }
 </style>

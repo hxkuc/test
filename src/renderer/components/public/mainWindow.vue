@@ -8,10 +8,6 @@
                         <i class="iconfont icon-dati1" style="font-size: 100px"></i>
                         <span style="text-align: center;font-size: 14px;font-weight: 900;">开始答题</span>
                     </div>
-                    <!-- <div style="display: flex;flex-direction: column">
-						<i class="iconfont icon-mashangchuti" style="font-size: 100px"></i>
-						<span style="text-align: center;">马上出题</span>
-					</div> -->
                 </div>
                 <div>
                 </div>
@@ -33,9 +29,13 @@ export default {
         width: 500,
         height: 350,
         router: '/answer',
-        name: 'answer'
+        name: 'answer',
+        maximizable: false,
+        resizable: false
       })
     }
+  },
+  mounted: function () {
   },
   components: {mainHead}
 }

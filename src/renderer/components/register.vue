@@ -77,7 +77,7 @@ export default {
       this.$router.push('/')
     },
     login () {
-      this.$store.dispatch('changeTransition', 'rotate')
+      this.$store.dispatch('changeTransition', 'rotateleft')
       this.$router.push('/login')
     }
   }

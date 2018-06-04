@@ -1,77 +1,79 @@
 <template>
     <div class="fullWindow">
-        <div class="header" style="display: flex;border-top-left-radius: 3px;border-top-right-radius: 3px;padding: 2px;">
-            <div style="width: 75%;display: flex;align-items: center;">
-                <img src="http://p1.qzone.la/upload/20150102/a3zs6l69.jpg" style="margin-left: 10px;width: 40px;height: 40px;border-radius: 50%;box-shadow: 0px 3px 13px 3px rgba(0, 0, 0, 0.3)">
-                <div style="width: 70%;display: flex;flex-direction: column;margin-left: 10px;">
-                    <div style="height: 20px;font-size: 12px;line-height: 20px;font-weight: 900;">我爱你中国</div>
-                    <div style="font-size: 10px;color: #cecece;">艺术源于生活！</div>
-                </div>
-            </div>
-            <div style="width: 25%;display: flex;justify-content: flex-end;">
-                <i @click="hideWindow" class="rightIcon iconfont icon-zuixiaohua"></i>
-                <i @click="closeWindow" class="rightIconLast rightIcon iconfont icon-guanbi5"></i>
-                <!-- <i onclick="fullWindow()" class="rightIcon iconfont el-icon-h-zuidahua"></i> -->
-            </div>
-        </div>
-        <div style="width:100%;height:100%;overflow-y: auto; word-break: break-all;border-bottom-right-radius: 3px;border-bottom-left-radius: 3px;">
-            <div style="display: flex;flex-direction: column;height: 100%;">
-                <div style="display: flex;height: 60px;align-items: center;justify-content: space-around;margin-top: 40px;">
-                    <div style="display: flex;flex-direction: column;cursor: pointer;" @click="gotoHome">
-                        <i class="iconfont icon-zhuce" style="font-size: 30px"></i>
-                        <span style="text-align: center;font-size: 12px;font-weight: 900;margin-top: 10px;">注册</span>
-                    </div>
-                </div>
-                <div style="display: flex;height:200px;align-items: center;justify-content: space-around;flex-direction: column;padding: 10px">
-                  <el-input v-model="input" placeholder="请输入用户名"></el-input>
-                  <el-input v-model="input" placeholder="请输入密码！"></el-input>
-                  <el-input v-model="input" placeholder="请确认密码！"></el-input>
-                  <div style="width: 100%;display: flex">
-                    <el-button style="width: 50%">注册</el-button>
-                    <el-button style="width: 50%" @click="login">已有帐号去登录</el-button>
+        <renderHead></renderHead>
+        <div class="bodyStyle">
+            <div class="flexBody">
+                <div style="display: flex;height:100%;align-items: center;justify-content: space-around;flex-direction: column;padding: 10px">
+                  <div class="rowLine">
+                    <span style="width: 80px">发起者：</span> 
+                    <userHeadInfo width="50%"></userHeadInfo>
                   </div>
-                </div>
-                <div>
-                  <p style="text-align: center;font-size: 12px;">--其他方式登录--</p>
-                  <div style="display: flex;justify-content: center;margin-top: 10px;">
-                    <i class="iconfont icon-btn_qq" style="font-size: 20px;margin: 0 5px;"></i>
-                    <i class="iconfont icon-btn_wechat" style="font-size: 20px;margin: 0 5px;"></i>
 
+                  <div class="rowLine">
+                    <span style="width: 80px">方向：</span> 
+                    <el-tag size="mini">标签一</el-tag>
+                    <el-tag type="success" size="mini">标签二</el-tag>
+                    <el-tag type="info" size="mini">标签三</el-tag>
+                    <el-tag type="warning" size="mini">标签四</el-tag>
+                    <el-tag type="danger" size="mini">标签五</el-tag>
                   </div>
+                  <div class="rowLine">
+                    <span style="width: 80px">难度：</span>
+                    <el-rate
+                      v-model="ps"
+                      :colors="['green', '#F7BA2A', 'red']" show-text>
+                    </el-rate>
+                  </div>
+
+                  <div class="rowLine">
+                    <span style="width: 80px">正确率：</span>
+                    <div style="width: 100%;display: flex;align-items: center;">
+                      <span style="font-size: 10px">正确： 300人</span>
+                      <div style="width: 100%"><el-progress :text-inside="true" :stroke-width="18" :percentage="80" status="success"></el-progress></div>
+                      <span style="font-size: 10px">错误： 100人</span>
+                    </div>
+                    
+                  </div>
+
+
+                  <div class="rowLine">
+                    <span style="width: 80px">平均用时：</span>
+                    <div style="width: 100%;display: flex;align-items: center;">
+                      14：32秒
+                    </div>
+                  </div>
+
                 </div>
+
+                <div style="display: flex;justify-content: center;height: 60px;align-items: center;padding: 10px 0">
+                  <div></div>
+                  <div style="display: flex;align-items: center;">
+                    <i class="iconfont icon-xiayishou1" style="font-size: 20px;margin: 0 5px;"></i>
+                    <i class="iconfont icon-kaishi" @click="next" style="font-size: 40px;margin: 0 50px;"></i>
+                    <i class="iconfont icon-shouye4" style="font-size: 20px;margin: 0 5px;"></i>
+                  </div>
+                  <div style="display: flex;align-items: center;">
+                    <i class="iconfont icon-suiji" style="font-size: 20px;margin: 0px 5px 0 50px;;"></i>
+                  </div>
+                  
+                  
+                </div>
+
             </div>
         </div>
     </div>
 </template>
 <script>
-import { remote } from 'electron'
+import renderHead from '@/components/public/renderHead.vue'
+import userHeadInfo from '@/components/public/userHeadInfo.vue'
 export default {
   name: 'answer',
+  data () {
+    return {
+      ps: 3
+    }
+  },
   methods: {
-    closeWindow () {
-      this.$Win.closeWin()
-    },
-    fullWindow () {
-      let win = remote.getCurrentWindow()
-      let html = document.getElementsByTagName('html')[0]
-      if (!html.style.padding || html.style.padding === '5px') {
-        html.style.padding = '0px'
-        win.maximize()
-        win.setMovable(false)
-      } else {
-        html.style.padding = '5px'
-        win.unmaximize()
-        win.setMovable(true)
-      }
-    },
-    hideWindow () {
-      let win = remote.getCurrentWindow()
-      if (win.isMinimized()) {
-        win.restore()
-      } else {
-        win.minimize()
-      }
-    },
     gotoHome () {
       this.$store.dispatch('changeTransition', 'default')
       this.$router.push('/')
@@ -79,30 +81,37 @@ export default {
     login () {
       this.$store.dispatch('changeTransition', 'rotate')
       this.$router.push('/login')
+    },
+    next () {
+      this.$store.dispatch('changeTransition', 'flipx')
+      this.$router.push('/answering')
     }
-  }
+  },
+  components: {renderHead, userHeadInfo}
 }
 </script>
 <style>
 
-.header {
-    height: 60px;
-    -webkit-app-region: drag;
+.bodyStyle {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    word-break: break-all;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
 }
-
-.rightIcon {
-    float: right;
-    font-size: 18px;
-    padding: 5px 0px 5px 4px;
-    cursor: pointer;
-    -webkit-app-region: no-drag;
+.flexBody {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
-
-.rightIcon:hover {
-    color: #ff001a;
+.rowLine {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 10px 0
 }
-
-.rightIconLast {
-    padding-right: 5px;
+.iconfont{
+  cursor: pointer;
 }
 </style>

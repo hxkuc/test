@@ -43,6 +43,11 @@ export default new Router({
       path: '/answer',
       name: 'answer',
       component: require('@/components/answer').default
+    },
+    {
+      path: '/answering',
+      name: 'answering',
+      component: require('@/components/answering').default
     }
   ]
 })

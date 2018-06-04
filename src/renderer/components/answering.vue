@@ -1,0 +1,88 @@
+<template>
+    <div class="fullWindow">
+        <renderHead></renderHead>
+        <div class="bodyStyle">
+            <div class="flexBody">
+                <div style="display: flex;height:100%;align-items: center;justify-content: space-around;flex-direction: column;padding: 10px">
+                  <div class="rowLine">
+                    <span style="width: 80px">发起者：</span> 
+                    <h3>这里是题目的标题</h3>
+                  </div>
+
+                  <div style="display: flex;flex-direction: column;background: rgba(0, 0, 0, 0.2);border-radius: 3px;width: 100%;padding: 10px;box-sizing: border-box;justify-content: center;">
+
+                    <el-checkbox label="答案aqwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww" style="padding: 5px 0">1212</el-checkbox>
+                    <el-checkbox label="答案b" style="padding: 5px 0"></el-checkbox>
+                    <el-checkbox label="答案c" style="padding: 5px 0"></el-checkbox>
+                    <el-checkbox label="答案d" style="padding: 5px 0"></el-checkbox>
+                  </div>
+                </div>
+
+                <div style="display: flex;justify-content: center;height: 60px;align-items: center;padding: 10px 0">
+                  <div>12:32</div>
+                  <div style="display: flex;align-items: center;">
+                    
+                    <i class="iconfont icon-tijiao" style="font-size: 40px;margin: 0 50px;"></i>
+                    
+                  </div>
+                  <div>
+                    
+                  </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</template>
+<script>
+import renderHead from '@/components/public/renderHead.vue'
+import userHeadInfo from '@/components/public/userHeadInfo.vue'
+export default {
+  name: 'answer',
+  data () {
+    return {
+      ps: 3
+    }
+  },
+  methods: {
+    gotoHome () {
+      this.$store.dispatch('changeTransition', 'default')
+      this.$router.push('/')
+    },
+    login () {
+      this.$store.dispatch('changeTransition', 'rotate')
+      this.$router.push('/login')
+    },
+    back () {
+      this.$store.dispatch('changeTransition', 'flipx')
+      this.$router.push('/answer')
+    }
+  },
+  components: {renderHead, userHeadInfo}
+}
+</script>
+<style>
+
+.bodyStyle {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    word-break: break-all;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+.flexBody {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.rowLine {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 10px 0
+}
+.iconfont{
+  cursor: pointer;
+}
+</style>
