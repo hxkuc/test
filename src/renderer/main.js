@@ -10,7 +10,9 @@ import './assets/icon/iconfont.css'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
-Win.init()
+Win.init({
+  freeWindowNum: 2
+})
 Vue.prototype.$Win = Win
 Vue.use(ElementUI)
 

@@ -82,7 +82,9 @@ export default {
         router: '/answering',
         name: 'answering',
         x: x,
-        y: y
+        y: y,
+        alwaysOnTop: true,
+        skipTaskbar: true
       })
       this.$Win.openWin(this.win, true)
     },

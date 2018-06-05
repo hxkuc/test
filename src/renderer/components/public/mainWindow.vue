@@ -13,8 +13,9 @@
                 </div>
             </div>
         </div>
-        <div style="display: flex;margin: 5px 10px;padding: 5px;align-items: center;">
+        <div style="display: flex;margin: 5px 10px;padding: 5px;align-items: center;justify-content: space-between;">
             <i class="iconfont icon-datiqia" style="font-size: 25px"></i>
+            <i class="iconfont icon-shezhi2" style="font-size: 25px"></i>
         </div>
         <!-- <div style="text-align: center;font-size: 11px;padding: 2px;">2018@上海国际雅兰-美易通</div> -->
     </div>
@@ -42,6 +43,7 @@ export default {
 </script>
 <style>
 
-
-
+.iconfont{
+  cursor: pointer;
+}
 </style>
