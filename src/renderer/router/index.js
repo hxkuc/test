@@ -48,6 +48,11 @@ export default new Router({
       path: '/answering',
       name: 'answering',
       component: require('@/components/answering').default
+    },
+    {
+      path: '/finishAnswer',
+      name: 'finishAnswer',
+      component: require('@/components/finishAnswer').default
     }
   ]
 })

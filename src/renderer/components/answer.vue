@@ -4,7 +4,7 @@
         <div class="bodyStyle">
             <div class="flexBody">
                 <div style="display: flex;height:100%;align-items: center;justify-content: space-around;flex-direction: column;padding: 10px">
-                  <div class="rowLine">
+                  <div class="rowLine" style="padding-top: 0px">
                     <span style="width: 80px">发起者：</span> 
                     <userHeadInfo width="50%"></userHeadInfo>
                   </div>

@@ -4,41 +4,28 @@
         <div class="bodyStyle">
             <div class="flexBody">
                 <div style="display: flex;height:100%;align-items: center;justify-content: space-around;flex-direction: column;padding: 10px">
-                  <div class="rowLine">
-                    <span style="width: 80px">问：</span> 
-                    <h3>这里是题目的标题</h3>
+                  <div class="rowLine" style="padding-top: 0px">
+                    <span style="width: 80px">回答：</span> 
+                    <h3>正确</h3>
                   </div>
 
-                  <div style="background: rgba(0, 0, 0, 0.2);border-radius: 3px;width: 100%;padding: 10px;box-sizing: border-box;justify-content: center;height: 100%;
-    overflow-y: auto;">
-
-                    <div class="checkBoxStyle">
-                      <span class="checkSpan">A</span><el-checkbox style="display: flex;align-items: center;">eeelkjflsdfdsklfjdsklfjdsfrtretioretdfkfifkfd[pdldfdgkffkfffffffffffffffffffffffffffffffffffffffffffffffffffffff
-                      </el-checkbox>
+                  <div style="background: rgba(0, 0, 0, 0.2);border-radius: 3px;width: 100%;padding: 10px;box-sizing: border-box;justify-content: center;height: 100%;display: flex;">
+                    <div style="width: 50%">
+                      难度：
+                      评论：
                     </div>
-
-                    <div class="checkBoxStyle">
-                      <span class="checkSpan">B</span><el-checkbox style="display: flex;align-items: center;">eeelkjflsdfdsklfjdsklfjdsfrtretioretdfkfifkfd[pdldfdgkffkfffffffffffffffffffffffffffffffffffffffffffffffffffffff
-                      </el-checkbox>
-                    </div>
-
-                    <div class="checkBoxStyle">
-                      <span class="checkSpan">C</span><el-checkbox style="display: flex;align-items: center;">eeelkjflsdfdsklfjdsklfjdsfrtretioretdfkfifkfd[pdldfdgkffkfffffffffffffffffffffffffffffffffffffffffffffffffffffff
-                      </el-checkbox>
-                    </div>
-
-                    <div class="checkBoxStyle">
-                      <span class="checkSpan">D</span><el-checkbox style="display: flex;align-items: center;">eeelkjflsdfdsklfjdsklfjdsfrtretioretdfkfifkfd[pdldfdgkffkfffffffffffffffffffffffffffffffffffffffffffffffffffffff
-                      </el-checkbox>
+                    <div style="width: 50%">
+                      相关评论
+                      相关题型
+                      相关知识点
                     </div>
                   </div>
                 </div>
 
                 <div style="display: flex;justify-content: center;height: 60px;align-items: center;padding: 0 10px 10px 10px;">
-                  <div style="font-size: 37px;">12:32</div>
                   <div style="display: flex;align-items: center;">
                     
-                    <i class="iconfont icon-tijiao" @click="finish" style="font-size: 40px;margin: 0 50px;"></i>
+                    <i class="iconfont icon-tijiao" @mouseover="pinglun" @mouseout="outHide" style="font-size: 40px;margin: 0 50px;"></i>
                     
                   </div>
                 </div>
@@ -54,7 +41,8 @@ export default {
   name: 'answer',
   data () {
     return {
-      ps: 3
+      ps: 3,
+      win: ''
     }
   },
   methods: {
@@ -70,9 +58,37 @@ export default {
       this.$store.dispatch('changeTransition', 'flipx')
       this.$router.push('/answer')
     },
-    finish () {
-      this.$store.dispatch('changeTransition', 'flipx')
-      this.$router.push('/finishAnswer')
+    pinglun () {
+      console.log(this.$Win.win.getPosition())
+      console.log(window.screen.height)
+      console.log(window.screen.width)
+      // 确定新窗口位置
+      // 老窗口位置
+      let fatherBounds = this.$Win.win.getBounds()
+      // 老窗口大小
+      console.log(fatherBounds)
+      console.log(this.$Win.win.getBounds())
+      // 新窗口宽度
+      let width = 200
+      // 判断右边是否过界
+      let leftWidth = window.screen.width - fatherBounds.width - fatherBounds.x - width
+
+      let x = leftWidth >= 0 ? fatherBounds.width + fatherBounds.x : fatherBounds.x - width
+      let y = fatherBounds.y
+
+      this.win = this.$Win.createWin({
+        width: 200,
+        height: 300,
+        router: '/answering',
+        name: 'answering',
+        x: x,
+        y: y
+      })
+      this.$Win.openWin(this.win, true)
+    },
+    outHide () {
+      console.log(this.win)
+      this.win.close()
     }
   },
   components: {renderHead, userHeadInfo}
