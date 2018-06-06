@@ -37,6 +37,7 @@ export default {
     }
   },
   mounted: function () {
+    this.$store.setStore({name: 1})
   },
   components: {mainHead}
 }
