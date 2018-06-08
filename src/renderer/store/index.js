@@ -12,8 +12,6 @@ let Store = {
    */
   setStore: function (data) {
     // 首先判断当前文件是否加载自动提交函数
-    this.registerStore()
-    console.log(this)
     this.commit('_setStore', data)
   },
 
@@ -66,21 +64,6 @@ let Store = {
   },
 
   /*
-   * 注册动态函数
-   */
-  registerStore: function () {
-    let mutationsName = '_setStore'
-    if (!this._mutations[mutationsName]) {
-      this._mutations[mutationsName] = function (state, obj) {
-        console.log(obj)
-        for (let key in obj) {
-          if (state) state[key] = obj[key]
-        }
-      }
-    }
-  },
-
-  /*
    * 设置缓存
    */
   setLocalStorage: function (name, data) {
@@ -101,9 +84,16 @@ let Store = {
 
 Vuex.Store.prototype = Object.assign(Vuex.Store.prototype, Store)
 console.log(Vuex)
-let store = new Vuex.Store({
+
+export default new Vuex.Store({
   modules,
+  mutations: {
+    _setStore (state, obj) {
+      console.log(state)
+      for (let key in obj) {
+        if (state) state[key] = obj[key]
+      }
+    }
+  },
   strict: process.env.NODE_ENV !== 'production'
 })
-
-export default store
