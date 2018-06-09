@@ -83,17 +83,58 @@ let Store = {
 }
 
 Vuex.Store.prototype = Object.assign(Vuex.Store.prototype, Store)
-console.log(Vuex)
+
+// 插件函数
+const myPlugin = store => {
+  let otArr = []
+  /*
+   * @author: huang
+   * 监听其他进程发送过来的消息
+   */
+  let fun = (event, arg) => {
+    // console.log(arg)
+    // 执行单个的state的变更
+    // 提交前设置这个commit是其他进程发送过来的
+    console.log(1)
+    otArr.push(arg)
+    store.commit(arg.type, arg.payload)
+  }
+  electron.remote.ipcMain.on('_setGlobalStore', fun)
+  window.addEventListener('beforeunload', () => {
+    electron.remote.ipcMain.removeListener('_setGlobalStore', fun)
+  })
+  // console.log(electron.remote.ipcMain)
+  store.subscribe((mutation, state) => {
+    // 每次 mutation 之后调用
+    // mutation 的格式为 { type, payload }
+    let isCun = false
+    otArr.forEach((row, key) => {
+      console.log(row.payload === mutation.payload)
+      console.log(row, mutation)
+      if (row.type === mutation.type) {
+        isCun = true
+        // otArr.splice(key, 1)
+      }
+    })
+    if (!isCun) {
+      // 执行本地存储
+      window.localStorage.setItem('_VUEX', JSON.stringify(state))
+      // 分发store的变更
+      // 怎么阻止重复发送，如果是其他进程发过来同步数据的话就阻止发送
+      electron.ipcRenderer.send('_setGlobalStore', mutation)
+    }
+  })
+}
 
 export default new Vuex.Store({
   modules,
   mutations: {
     _setStore (state, obj) {
-      console.log(state)
       for (let key in obj) {
         if (state) state[key] = obj[key]
       }
     }
   },
+  plugins: [myPlugin],
   strict: process.env.NODE_ENV !== 'production'
 })
