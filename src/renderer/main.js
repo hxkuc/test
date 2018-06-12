@@ -9,6 +9,7 @@ import Win from 'electron-vue-windows'
 import './assets/icon/iconfont.css'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+
 Win.init({
   freeWindowNum: 2
 })

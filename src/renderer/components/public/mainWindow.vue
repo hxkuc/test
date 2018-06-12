@@ -26,6 +26,7 @@ export default {
   name: 'mainWindow',
   methods: {
     gotoanswer () {
+      this.$store.dispatch('changeTransition', 'default')
       this.$Win.openWin({
         width: 500,
         height: 350,
@@ -36,7 +37,7 @@ export default {
       })
     },
     sdf () {
-      this.$store.setStore({Counter: {main: 2}})
+      this.$store.dispatch('changeTransition', 'la')
     }
   },
   mounted: function () {
