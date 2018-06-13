@@ -136,5 +136,12 @@ export default {
     display: flex;
     flex-direction: column;
     box-shadow: 0 1px 6px 1px rgba(0, 0, 0, 0.3);
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+#app{
+    width: 100%;
+    height: 100%
 }
 </style>

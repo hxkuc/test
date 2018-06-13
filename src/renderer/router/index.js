@@ -53,6 +53,11 @@ export default new Router({
       path: '/finishAnswer',
       name: 'finishAnswer',
       component: require('@/components/finishAnswer').default
+    },
+    {
+      path: '/setting',
+      name: 'setting',
+      component: require('@/components/setting').default
     }
   ]
 })

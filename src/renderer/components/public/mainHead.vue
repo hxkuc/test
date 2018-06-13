@@ -51,10 +51,7 @@ export default {
 <style>
   .header {
     height: 60px;
-    -webkit-app-region: drag;
     display: flex;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
     padding: 2px;
 }
 .rightIcon {
