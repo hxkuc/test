@@ -1,5 +1,6 @@
 <template>
     <div class="header">
+        <span style="margin-left: 5px;font-size: 13px">{{title}}</span>
         <div class="rightBox">
             <i @click="hideWindow" class="rightIcon iconfont icon-zuixiaohua"></i>
             <i @click="closeWindow" class="rightIconLast rightIcon iconfont icon-guanbi5"></i>
@@ -36,6 +37,11 @@ export default {
         win.minimize()
       }
     }
+  },
+  computed: {
+    title: function () {
+      return this.$router.currentRoute.meta.title
+    }
   }
 }
 </script>
@@ -44,10 +50,9 @@ export default {
     height: 30px;
     -webkit-app-region: drag;
     display: flex;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
     padding: 2px;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .rightIcon {

@@ -57,6 +57,9 @@ export default new Router({
     {
       path: '/setting',
       name: 'setting',
+      meta: {
+        title: '设置'
+      },
       component: require('@/components/setting').default
     }
   ]

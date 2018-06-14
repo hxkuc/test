@@ -38,8 +38,8 @@ export default {
     },
     setting () {
       this.$Win.openWin({
-        width: 500,
-        height: 350,
+        width: 760,
+        height: 550,
         router: '/setting',
         name: 'setting',
         maximizable: false,
