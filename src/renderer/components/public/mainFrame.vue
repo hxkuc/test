@@ -1,5 +1,6 @@
 <template>
     <div class="fullWindow">
+    	<div class="backgroundclass"></div>
         <header class="headDiv">
         	<slot name="header"></slot>
         </header>
@@ -23,18 +24,53 @@ export default {
 }
 </script>
 <style scoped>
-  .bodyDiv {
+.fullWindow {
+	color: #fff;
+	border-radius: 3px;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 0 1px 6px 1px rgba(0, 0, 0, 0.3);
+	justify-content: space-between;
+	overflow: hidden;
+	position: relative;
+}
+.bodyDiv {
+	width:100%;
+	height: 100%;
+	overflow-y: auto;
+	word-break: break-all;
+	flex-grow: 1;
+}
+.headDiv {
+	flex-shrink: 0;
+	-webkit-app-region: drag;
+}
+.footDiv {
+	flex-shrink: 0;
+}
+.backgroundclass{
+	z-index: -1;
+	position: absolute;
+	background: url(./../../../../static/123.jpg) center center no-repeat fixed;
+	-webkit-background-size:cover;
+    -moz-background-size:cover;
+    background-size:cover;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+
+.backgroundclass:after{
+    content: "";
     width:100%;
-    height: 100%;
-    overflow-y: auto;
-    word-break: break-all;
-    flex-grow: 1;
-  }
-  .headDiv {
-  	flex-shrink: 0;
-  	-webkit-app-region: drag;
-  }
-  .footDiv {
-  	flex-shrink: 0;
-  }
+    height:100%;
+    position: absolute;
+    background: inherit;
+    filter: blur(10px);
+    overflow: hidden;
+    box-sizing: border-box;
+}
 </style>

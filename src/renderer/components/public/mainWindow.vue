@@ -1,6 +1,6 @@
 <template>
-    <div class="fullWindow">
-        <mainHead></mainHead>
+    <Frame>
+      <mainHead slot="header"></mainHead>
         <div style="width:100%;height:100%;overflow-y: auto; word-break: break-all;border-bottom-right-radius: 3px;border-bottom-left-radius: 3px;">
             <div style="display: flex;flex-direction: column;height: 100%;">
                 <div style="display: flex;height: 100%;align-items: center;justify-content: space-around;">
@@ -13,14 +13,14 @@
                 </div>
             </div>
         </div>
-        <div style="display: flex;margin: 5px 10px;padding: 5px;align-items: center;justify-content: space-between;">
+        <div slot="footer" style="display: flex;margin: 5px 10px;padding: 5px;align-items: center;justify-content: space-between;">
             <i class="iconfont icon-datiqia" style="font-size: 25px"></i>
             <i class="iconfont icon-shezhi2" @click="setting" style="font-size: 25px"></i>
         </div>
-        <!-- <div style="text-align: center;font-size: 11px;padding: 2px;">2018@上海国际雅兰-美易通</div> -->
-    </div>
+    </Frame>
 </template>
 <script>
+import Frame from '@/components/public/mainFrame.vue'
 import mainHead from '@/components/public/mainHead.vue'
 export default {
   name: 'mainWindow',
@@ -50,7 +50,7 @@ export default {
   mounted: function () {
     // this.$store.setStore({name: 1})
   },
-  components: {mainHead}
+  components: {Frame, mainHead}
 }
 </script>
 <style>

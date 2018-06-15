@@ -120,26 +120,6 @@ export default {
     -webkit-transform: translate3d(-100%, 0, 0);
 }
 
-
-
-
-
-
-
-
-.fullWindow {
-    background: rgb(1, 40, 55);
-    color: #fff;
-    border-radius: 3px;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 1px 6px 1px rgba(0, 0, 0, 0.3);
-    justify-content: space-between;
-    overflow: hidden;
-}
-
 #app{
     width: 100%;
     height: 100%

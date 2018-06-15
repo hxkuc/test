@@ -2,15 +2,40 @@
   <Frame>
     <renderHead slot="header"></renderHead>
 
-    <div style="padding: 5px;display: flex; flex-direction: column;height: 100%">
+    <div style="padding: 5px;display: flex; flex-direction: column;height: 100%;box-sizing: border-box;">
       
 
-      <div style="flex-grow: 1;">
-          <el-card shadow="hover" :body-style="{ padding: '0px' }" style="width: 100px;height: 90px;">
-            <img src="http://fe.topitme.com/e/45/4b/11310479806154b45eo.jpg" style="width: 100px;height: 60px">
-            <el-switch style="float: right;"></el-switch>
-          </el-card>
-
+      <div style="flex-grow: 1;display: flex;flex-wrap: wrap;justify-content: center;">
+            <div style="width: 120px;height: 120px;border: 1px solid #fff">
+              <div class="zoomImage" style="background-image:url(http://images.pccoo.cn/bbs/20111128/201111282231581.jpg)"></div>
+            </div>
+            <div style="width: 120px;height: 120px;border: 1px solid #fff">
+              <div class="zoomImage" style="background-image:url(http://images.pccoo.cn/bbs/20111128/201111282231581.jpg)"></div>
+            </div>
+            <div style="width: 120px;height: 120px;border: 1px solid #fff">
+              <div class="zoomImage" style="background-image:url(http://images.pccoo.cn/bbs/20111128/201111282231581.jpg)"></div>
+            </div>
+            <div style="width: 120px;height: 120px;border: 1px solid #fff">
+              <div class="zoomImage" style="background-image:url(http://images.pccoo.cn/bbs/20111128/201111282231581.jpg)"></div>
+            </div>
+            <div style="width: 120px;height: 120px;border: 1px solid #fff">
+              <div class="zoomImage" style="background-image:url(http://images.pccoo.cn/bbs/20111128/201111282231581.jpg)"></div>
+            </div>
+            <div style="width: 120px;height: 120px;border: 1px solid #fff">
+              <div class="zoomImage" style="background-image:url(http://images.pccoo.cn/bbs/20111128/201111282231581.jpg)"></div>
+            </div>
+            <div style="width: 120px;height: 120px;border: 1px solid #fff">
+              <div class="zoomImage" style="background-image:url(http://images.pccoo.cn/bbs/20111128/201111282231581.jpg)"></div>
+            </div>
+            <div style="width: 120px;height: 120px;border: 1px solid #fff">
+              <div class="zoomImage" style="background-image:url(http://images.pccoo.cn/bbs/20111128/201111282231581.jpg)"></div>
+            </div>
+            <div style="width: 120px;height: 120px;border: 1px solid #fff">
+              <div class="zoomImage" style="background-image:url(http://images.pccoo.cn/bbs/20111128/201111282231581.jpg)"></div>
+            </div>
+            <div style="width: 120px;height: 120px;border: 1px solid #fff">
+              <div class="zoomImage" style="background-image:url(http://images.pccoo.cn/bbs/20111128/201111282231581.jpg)"></div>
+            </div>
 
       </div>
 
@@ -41,4 +66,16 @@
   }
 </script>
 <style>
+.zoomImage{
+    width:100%;
+    height:0;
+    padding-bottom: 100%;
+    overflow:hidden;
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    background-size:cover;
+    cursor: pointer;
+}
 </style>
