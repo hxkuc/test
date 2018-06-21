@@ -1,6 +1,6 @@
 <template>
-    <div class="fullWindow">
-        <renderHead></renderHead>
+    <Frame>
+        <renderHead slot="header"></renderHead>
         <div class="bodyStyle">
             <div class="flexBody">
                 <div style="display: flex;height:100%;align-items: center;justify-content: space-around;flex-direction: column;padding: 10px">
@@ -9,8 +9,7 @@
                     <h3>这里是题目的标题</h3>
                   </div>
 
-                  <div style="background: rgba(0, 0, 0, 0.2);border-radius: 3px;width: 100%;padding: 10px;box-sizing: border-box;justify-content: center;height: 100%;
-    overflow-y: auto;">
+                  <div style="background: rgba(0, 0, 0, 0.2);border-radius: 3px;width: 100%;padding: 10px;box-sizing: border-box;justify-content: center;height: 100%;overflow-y: auto;">
 
                     <div class="checkBoxStyle">
                       <span class="checkSpan">A</span><el-checkbox style="display: flex;align-items: center;">eeelkjflsdfdsklfjdsklfjdsfrtretioretdfkfifkfd[pdldfdgkffkfffffffffffffffffffffffffffffffffffffffffffffffffffffff
@@ -45,9 +44,10 @@
 
             </div>
         </div>
-    </div>
+    </Frame>
 </template>
 <script>
+import Frame from './public/mainFrame.vue'
 import renderHead from '@/components/public/renderHead.vue'
 import userHeadInfo from '@/components/public/userHeadInfo.vue'
 export default {
@@ -75,7 +75,7 @@ export default {
       this.$router.push('/finishAnswer')
     }
   },
-  components: {renderHead, userHeadInfo}
+  components: {renderHead, userHeadInfo, Frame}
 }
 </script>
 <style>

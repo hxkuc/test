@@ -1,6 +1,6 @@
 <template>
-    <div class="fullWindow">
-        <renderHead></renderHead>
+    <Frame>
+        <renderHead slot="header"></renderHead>
         <div class="bodyStyle">
             <div class="flexBody">
                 <div style="display: flex;height:100%;align-items: center;justify-content: space-around;flex-direction: column;padding: 10px">
@@ -61,9 +61,10 @@
 
             </div>
         </div>
-    </div>
+    </Frame>
 </template>
 <script>
+import Frame from './public/mainFrame.vue'
 import renderHead from '@/components/public/renderHead.vue'
 import userHeadInfo from '@/components/public/userHeadInfo.vue'
 export default {
@@ -87,7 +88,7 @@ export default {
       this.$router.push('/answering')
     }
   },
-  components: {renderHead, userHeadInfo}
+  components: {renderHead, userHeadInfo, Frame}
 }
 </script>
 <style>

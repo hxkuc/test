@@ -60,6 +60,7 @@
             return /\.(png|jpe?g|gif)(\?.*)?$/.test(row)
           })
         }
+        console.log(files)
         that.imgArr = files
       })
     },

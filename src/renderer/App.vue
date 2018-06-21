@@ -68,14 +68,14 @@ export default {
 }
 
 .flip-enter {
-    -webkit-transform: rotateY(-90deg) scale(0.8, 0.8);
+    -webkit-transform: rotateY(-90deg) scale(0.9, 0.9);
 }
 
 .flip-leave-to
 /* .fade-leave-active below version 2.1.8 */
 
 {
-    -webkit-transform: rotateY(90deg) scale(0.8, 0.8);
+    -webkit-transform: rotateY(90deg) scale(0.9, 0.9);
 }
 
 

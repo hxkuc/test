@@ -41,7 +41,6 @@ export default {
   box-shadow: 0 1px 6px 1px rgba(0, 0, 0, 0.3);
   justify-content: space-between;
   overflow: hidden;
-  position: relative;
 }
 .bodyDiv {
   width:100%;
