@@ -31,7 +31,7 @@ export default {
 /* CSS */
 
 .default-enter-active {
-    transition: all 0.3s;
+    transition: all 0.1s ease-out;
 }
 
 .default-enter {
@@ -81,7 +81,7 @@ export default {
 
 
 .content {
-  position: absolute;
+  position: absolute !important;
   top: 0;
   left: 0;
 }

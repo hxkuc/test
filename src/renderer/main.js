@@ -11,7 +11,8 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
 Win.init({
-  freeWindowNum: 2
+  freeWindowNum: 2,
+  domain: 'http://localhost:9088/'
 })
 Vue.prototype.$Win = Win
 Vue.use(ElementUI)

@@ -6,7 +6,6 @@
             <div style="width: 120px;height: 120px;border: 1px solid #fff" v-for="imgs in imgArr">
               <div @click="selectImg(imgs)" class="zoomImage" :style="{'background-image': 'url(static/background/' + imgs + ')'}"></div>
             </div>
-            
       </div>
       <div style="height: 40px;display: flex;">
         <div class="colorClass" @click="asdf(c)" :style="{'background-color': c}" v-for="c in colorArr"></div>
@@ -16,7 +15,7 @@
       </div>
     </div>
     <div slot="footer" style="display: flex;height: 30px; background:#fff;color: #000;padding: 5px">
-      <el-button icon="el-icon-plus" size="mini"  type="primary">自定义</el-button>
+      <el-button icon="el-icon-plus" size="mini"  type="primary" @click="openDialog">自定义</el-button>
       <el-slider :disabled="this.$store.state.BaseConfig.backGroundType == 2" @change="change" :max="25" v-model="value" style="width: 200px;margin-left: 15px"></el-slider>
       <el-color-picker class="fontColor" @active-change="changeFontColor" v-model="fontColor" show-alpha></el-color-picker>
     </div>
@@ -25,6 +24,7 @@
 <script>
   import Frame from './public/mainFrame.vue'
   import renderHead from '@/components/public/renderHead.vue'
+  import {remote} from 'electron'
   import fs from 'fs'
   export default {
     name: 'setting',
@@ -50,19 +50,41 @@
       },
       selectImg (img) {
         this.$store.commit('CHANGE_BACKGROUNDIMG', img)
+      },
+      openDialog () {
+        let win = remote.getCurrentWindow()
+        remote.dialog.showOpenDialog(win, {
+          title: '选择背景图片',
+          filters: [
+            { name: '图片', extensions: ['png', 'jpeg', 'jpg', 'gif'] }
+          ]
+        }, (filePaths, bookmarks) => {
+          // 拷贝文件
+          if (filePaths && filePaths[0]) {
+            // 重命名文件
+            let fileName = new Date().getTime() + filePaths[0].substring(filePaths[0].lastIndexOf('.'))
+            let writeStream = fs.createWriteStream(__static + '/background/' + fileName)
+            writeStream.on('finish', () => {
+              this.selectImg(fileName)
+              this.showImg()
+            })
+            fs.createReadStream(filePaths[0]).pipe(writeStream)
+          }
+        })
+      },
+      showImg () {
+        fs.readdir(__static + '/background', (err, files) => {
+          if (!err) {
+            files = files.filter(row => {
+              return /\.(png|jpe?g|gif)(\?.*)?$/.test(row)
+            })
+          }
+          this.imgArr = files
+        })
       }
     },
     mounted: function () {
-      let that = this
-      fs.readdir(__static + '/background', function (err, files) {
-        if (!err) {
-          files = files.filter(row => {
-            return /\.(png|jpe?g|gif)(\?.*)?$/.test(row)
-          })
-        }
-        console.log(files)
-        that.imgArr = files
-      })
+      this.showImg()
     },
     components: { Frame, renderHead }
   }
