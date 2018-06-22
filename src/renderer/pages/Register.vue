@@ -32,10 +32,10 @@
 </template>
 <script>
 import { remote } from 'electron'
-import Frame from './public/mainFrame.vue'
-import mainHead from '@/components/public/mainHead.vue'
+import Frame from '@/components/frame/mainFrame.vue'
+import mainHead from '@/components/header/mainHead.vue'
 export default {
-  name: 'login',
+  name: 'Login',
   methods: {
     closeWindow () {
       remote.app.quit()

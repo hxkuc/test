@@ -20,10 +20,10 @@
     </Frame>
 </template>
 <script>
-import Frame from '@/components/public/mainFrame.vue'
-import mainHead from '@/components/public/mainHead.vue'
+import Frame from '@/components/frame/mainFrame.vue'
+import mainHead from '@/components/header/mainHead.vue'
 export default {
-  name: 'mainWindow',
+  name: 'MainWindow',
   methods: {
     gotoanswer () {
       this.$store.dispatch('changeTransition', 'default')

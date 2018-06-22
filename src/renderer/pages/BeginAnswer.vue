@@ -64,11 +64,11 @@
     </Frame>
 </template>
 <script>
-import Frame from './public/mainFrame.vue'
-import renderHead from '@/components/public/renderHead.vue'
-import userHeadInfo from '@/components/public/userHeadInfo.vue'
+import Frame from '@/components/frame/mainFrame.vue'
+import renderHead from '@/components/header/renderHead.vue'
+import userHeadInfo from '@/components/user/userHeadInfo.vue'
 export default {
-  name: 'answer',
+  name: 'BeginAnswer',
   data () {
     return {
       ps: 3

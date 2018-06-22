@@ -11,7 +11,7 @@
 
 <script>
 import { remote } from 'electron'
-import userHeadInfo from '@/components/public/userHeadInfo.vue'
+import userHeadInfo from '@/components/user/userHeadInfo.vue'
 export default {
   name: 'mainHead',
   methods: {

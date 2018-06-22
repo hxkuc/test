@@ -22,12 +22,12 @@
   </Frame>
 </template>
 <script>
-  import Frame from './public/mainFrame.vue'
-  import renderHead from '@/components/public/renderHead.vue'
+  import Frame from '@/components/frame/mainFrame.vue'
+  import renderHead from '@/components/header/renderHead.vue'
   import {remote} from 'electron'
   import fs from 'fs'
   export default {
-    name: 'setting',
+    name: 'Setting',
     data () {
       return {
         value: this.$store.state.BaseConfig.backGroundBlur,

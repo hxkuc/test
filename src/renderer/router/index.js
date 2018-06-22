@@ -8,7 +8,7 @@ export default new Router({
     {
       path: '/',
       name: 'mainWindow',
-      component: require('@/components/public/mainWindow.vue').default
+      component: require('@/pages/MainWindow.vue').default
     },
     {
       path: '*',
@@ -17,42 +17,32 @@ export default new Router({
     {
       path: '/backGround',
       name: 'backGround',
-      component: require('@/components/backGround').default
-    },
-    {
-      path: '/home',
-      name: 'home',
-      component: require('@/components/home').default
-    },
-    {
-      path: '/dataWindow',
-      name: 'dataWindow',
-      component: require('@/components/dataWindow').default
+      component: require('@/components/public/BackGround').default
     },
     {
       path: '/login',
       name: 'login',
-      component: require('@/components/login').default
+      component: require('@/pages/Login').default
     },
     {
       path: '/register',
       name: 'register',
-      component: require('@/components/register').default
+      component: require('@/pages/Register').default
     },
     {
       path: '/answer',
       name: 'answer',
-      component: require('@/components/answer').default
+      component: require('@/pages/BeginAnswer').default
     },
     {
       path: '/answering',
       name: 'answering',
-      component: require('@/components/answering').default
+      component: require('@/pages/Answering').default
     },
     {
       path: '/finishAnswer',
       name: 'finishAnswer',
-      component: require('@/components/finishAnswer').default
+      component: require('@/pages/FinishAnswer').default
     },
     {
       path: '/setting',
@@ -60,7 +50,7 @@ export default new Router({
       meta: {
         title: '设置'
       },
-      component: require('@/components/setting').default
+      component: require('@/pages/Setting').default
     }
   ]
 })
