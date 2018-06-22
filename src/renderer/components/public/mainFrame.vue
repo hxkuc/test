@@ -1,10 +1,8 @@
 <template>
     <div class="fullWindow" :style="fontColor">
-      <transition name="fade" mode="out-in">
-        <div id="asd" class="backgroundclass" :style="backGroundParent">
-      	  <div id="asf" class="backBodyClass" :style="backGroundChild"></div>
+        <div class="backgroundclass" style="transition: all 0.5s" :style="backGroundParent">
+      	  <div class="backBodyClass" style="transition: all 0.5s" :style="backGroundChild"></div>
         </div>
-      </transition>
         <header class="headDiv">
           <slot name="header"></slot>
         </header>
@@ -24,30 +22,6 @@
 import { mapGetters } from 'vuex'
 export default {
   name: 'mainFrame',
-  methods: {
-    goani (startValue, endValue, eid) {
-      const TWEEN = require('@tweenjs/tween.js')
-      function animate () {
-        if (TWEEN.update()) {
-          requestAnimationFrame(animate)
-        }
-      }
-      let d = document.getElementById(eid)
-      new TWEEN.get(d).Tween(startValue)
-        .to(endValue, 750)
-        .start()
-
-      animate()
-    }
-  },
-  watch: {
-    backGroundParent: function (startValue, endValue) {
-      this.goani(startValue, endValue, 'asd')
-    },
-    backGroundChild: function (startValue, endValue) {
-      this.goani(startValue, endValue, 'asf')
-    }
-  },
   computed: {
     ...mapGetters([
       'backGroundParent',
@@ -106,11 +80,5 @@ export default {
   height:100%;
   overflow: hidden;
   box-sizing: border-box;
-}
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .1s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
 }
 </style>
