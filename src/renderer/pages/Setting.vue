@@ -2,12 +2,12 @@
   <Frame>
     <renderHead slot="header"></renderHead>
     <div style="padding: 5px;display: flex; flex-direction: column;height: 100%;box-sizing: border-box;">
-      <div style="flex-grow: 1;display: flex;flex-wrap: wrap;justify-content: center;">
+      <div style="flex-grow: 1;display: flex;flex-wrap: wrap;overflow-y: auto;">
             <div style="width: 120px;height: 120px;border: 1px solid #fff" v-for="imgs in imgArr">
               <div @click="selectImg(imgs)" class="zoomImage" :style="{'background-image': 'url(static/background/' + imgs + ')'}"></div>
             </div>
       </div>
-      <div style="height: 40px;display: flex;">
+      <div style="height: 40px;display: flex;flex-shrink: 0;">
         <div class="colorClass" @click="asdf(c)" :style="{'background-color': c}" v-for="c in colorArr"></div>
         <div class="colorClass">
           <el-color-picker @active-change="asdf" v-model="color3" show-alpha></el-color-picker>
@@ -101,6 +101,12 @@
   -moz-background-size:cover;
   background-size:cover;
   cursor: pointer;
+  animation: mymove 2s
+}
+@keyframes mymove
+{
+  from {opacity: 0}
+  to {opacity: 1}
 }
 .el-color-picker__trigger {
   padding: 0px;

@@ -63,6 +63,7 @@ export default {
       console.log(this.$Win.win.getPosition())
       console.log(window.screen.height)
       console.log(window.screen.width)
+      this.$store.dispatch('changeTransition', 'show')
       // 确定新窗口位置
       // 老窗口位置
       let fatherBounds = this.$Win.win.getBounds()

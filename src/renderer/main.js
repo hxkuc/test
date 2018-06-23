@@ -10,6 +10,9 @@ import './assets/icon/iconfont.css'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
+// 引入动画样式css
+import './assets/transform/transform.css'
+
 Win.init({
   freeWindowNum: 2,
   domain: 'http://localhost:9088/'

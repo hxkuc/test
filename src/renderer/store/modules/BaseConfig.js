@@ -1,5 +1,5 @@
 const state = {
-  trransition: 'default',
+  transition: 'default',
   backGroundType: 1,
   backGroundBlur: 2,
   backGroundImg: '123.jpg',
@@ -33,12 +33,16 @@ const getters = {
     return {
       color: state.fontColor
     }
+  },
+  transitionGroup: state => {
+    const trans = require('@/assets/transform/transform.js')
+    return trans[state.transition]
   }
 }
 
 const mutations = {
   CHANGE_TRANSITION (state, type) {
-    state.trransition = type
+    state.transition = type
   },
   CHANGE_BACKGROUNDBLUR (state, type) {
     state.backGroundBlur = type
