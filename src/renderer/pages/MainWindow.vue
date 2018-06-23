@@ -14,7 +14,7 @@
             </div>
         </div>
         <div slot="footer" style="display: flex;margin: 5px 10px;padding: 5px;align-items: center;justify-content: space-between;">
-            <i class="iconfont icon-datiqia" style="font-size: 25px"></i>
+            <i class="iconfont icon-datiqia" @click="settingQuestion" style="font-size: 25px"></i>
             <i class="iconfont icon-shezhi2" @click="setting" style="font-size: 25px"></i>
         </div>
     </Frame>
@@ -44,6 +44,16 @@ export default {
         name: 'setting',
         maximizable: false,
         resizable: false
+      })
+    },
+    settingQuestion () {
+      this.$store.dispatch('changeTransition', 'none')
+      this.$Win.openWin({
+        width: 760,
+        height: 550,
+        router: '/settingQuestion/index',
+        name: 'settingQuestion',
+        maximizable: false
       })
     }
   },

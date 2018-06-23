@@ -51,6 +51,20 @@ export default new Router({
         title: '设置'
       },
       component: require('@/pages/Setting').default
+    },
+    {
+      path: '/settingQuestion',
+      name: 'settingQuestion',
+      meta: {
+        title: '出题'
+      },
+      component: require('@/pages/SettingQuestion').default,
+      children: [
+        {
+          path: 'index',
+          component: () => import('@/pages/SettingQuestionIndex')
+        }
+      ]
     }
   ]
 })
