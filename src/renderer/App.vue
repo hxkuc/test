@@ -6,13 +6,16 @@
     </div>
 </template>
 <script>
-import { mapGetters } from 'vuex'
+// import { mapGetters } from 'vuex'
 export default {
   name: 'myName',
   computed: {
-    ...mapGetters([
-      'transitionGroup'
-    ])
+    transitionGroup: function () {
+      let res = this.$store.getters.transitionGroup
+      this.$store.commit('CHANGE_ISTRANSITIONING')
+      console.log(123)
+      return res
+    }
   }
 }
 </script>
