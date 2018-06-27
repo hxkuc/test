@@ -8,7 +8,7 @@ export default new Router({
     {
       path: '/',
       name: 'mainWindow',
-      component: require('@/pages/MainWindow.vue').default
+      component: () => import('@/pages/MainWindow.vue')
     },
     {
       path: '*',
@@ -17,32 +17,32 @@ export default new Router({
     {
       path: '/backGround',
       name: 'backGround',
-      component: require('@/components/public/BackGround').default
+      component: () => import('@/components/public/BackGround')
     },
     {
       path: '/login',
       name: 'login',
-      component: require('@/pages/Login').default
+      component: () => import('@/pages/Login')
     },
     {
       path: '/register',
       name: 'register',
-      component: require('@/pages/Register').default
+      component: () => import('@/pages/Register')
     },
     {
       path: '/answer',
       name: 'answer',
-      component: require('@/pages/BeginAnswer').default
+      component: () => import('@/pages/BeginAnswer')
     },
     {
       path: '/answering',
       name: 'answering',
-      component: require('@/pages/Answering').default
+      component: () => import('@/pages/Answering')
     },
     {
       path: '/finishAnswer',
       name: 'finishAnswer',
-      component: require('@/pages/FinishAnswer').default
+      component: () => import('@/pages/FinishAnswer')
     },
     {
       path: '/setting',
@@ -50,7 +50,7 @@ export default new Router({
       meta: {
         title: '设置'
       },
-      component: require('@/pages/Setting').default
+      component: () => import('@/pages/Setting')
     },
     {
       path: '/settingQuestion',
@@ -58,7 +58,7 @@ export default new Router({
       meta: {
         title: '出题'
       },
-      component: require('@/pages/SettingQuestion').default,
+      component: () => import('@/pages/SettingQuestion'),
       children: [
         {
           path: 'index',

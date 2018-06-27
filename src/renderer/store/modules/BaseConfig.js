@@ -1,6 +1,5 @@
 const state = {
   transition: 'default',
-  isSetTransition: false,
   backGroundType: 1,
   backGroundBlur: 2,
   backGroundImg: '123.jpg',
@@ -37,15 +36,13 @@ const getters = {
   },
   transitionGroup: state => {
     const trans = require('@/assets/transform/transform.js')
-    return state.isSetTransition ? trans[state.transition] : trans['default']
+    return trans[state.transition]
   }
 }
 
 const mutations = {
   CHANGE_TRANSITION (state, type) {
-    state.isSetTransition = true
     state.transition = type
-    state.isSetTransition = false
   },
   CHANGE_BACKGROUNDBLUR (state, type) {
     state.backGroundBlur = type
@@ -60,9 +57,6 @@ const mutations = {
   CHANGE_BACKGROUNDIMG (state, type) {
     state.backGroundType = 1
     state.backGroundImg = type
-  },
-  CHANGE_ISTRANSITIONING (state) {
-    state.isSetTransition = false
   }
 }
 
