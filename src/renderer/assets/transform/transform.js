@@ -40,5 +40,17 @@ module.exports = {
     trransitionName: 'none',
     mode: '',
     routerClass: ''
+  },
+  slipUp: {
+    appClass: '',
+    trransitionName: 'slipup',
+    mode: 'in-out',
+    routerClass: 'content'
+  },
+  slipLeft: {
+    appClass: '',
+    trransitionName: 'slipleft',
+    mode: 'in-out',
+    routerClass: 'content'
   }
 }

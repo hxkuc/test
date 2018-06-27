@@ -106,3 +106,30 @@
 {
     -webkit-transform: translate3d(-100%, 0, 0);
 }
+
+
+.slipup-enter-active,
+.slipup-leave-active {
+    transition: all 0.30s ease-in 0s;
+}
+
+.slipup-enter {
+    -webkit-transform: translate3d(0, 100%, 0);
+}
+
+.slipup-leave-to{
+    -webkit-transform: translate3d(0, -100%, 0);
+}
+
+.slipleft-enter-active,
+.slipleft-leave-active {
+    transition: all 0.30s ease-in 0s;
+}
+
+.slipleft-enter {
+    -webkit-transform: translate3d(100%, 0, 0);
+}
+
+.slipleft-leave-to{
+    -webkit-transform: translate3d(-100%, 0, 0);
+}

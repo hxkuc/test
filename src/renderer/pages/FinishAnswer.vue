@@ -1,38 +1,30 @@
 <template>
-    <Frame>
-        <renderHead slot="header"></renderHead>
-        <div class="bodyStyle">
-            <div class="flexBody">
-                <div style="display: flex;height:100%;align-items: center;justify-content: space-around;flex-direction: column;padding: 10px">
-                  <div class="rowLine" style="padding-top: 0px">
-                    <span style="width: 80px">回答：</span> 
-                    <h3>正确</h3>
-                  </div>
-
-                  <div style="background: rgba(0, 0, 0, 0.2);border-radius: 3px;width: 100%;padding: 10px;box-sizing: border-box;justify-content: center;height: 100%;display: flex;">
-                    <div style="width: 50%">
-                      难度：
-                      评论：
-                    </div>
-                    <div style="width: 50%">
-                      相关评论
-                      相关题型
-                      相关知识点
-                    </div>
-                  </div>
-                </div>
-
-                <div style="display: flex;justify-content: center;height: 60px;align-items: center;padding: 0 10px 10px 10px;">
-                  <div style="display: flex;align-items: center;">
-                    
-                    <i class="iconfont icon-tijiao" @mouseover="pinglun" @mouseout="outHide" style="font-size: 40px;margin: 0 50px;"></i>
-                    
-                  </div>
-                </div>
-
+  <Frame>
+    <renderHead slot="header"></renderHead>
+    <div class="bodyStyle">
+      <div class="flexBody">
+        <div style="display: flex;height:100%;align-items: center;justify-content: space-around;flex-direction: column;padding: 10px">
+          <div class="rowLine" style="padding-top: 0px">
+            <span style="width: 80px">回答：</span>
+            <h3>正确</h3>
+          </div>
+          <div style="background: rgba(0, 0, 0, 0.2);border-radius: 3px;width: 100%;padding: 10px;box-sizing: border-box;justify-content: center;height: 100%;display: flex;">
+            <div style="width: 50%">
+              难度： 评论：
             </div>
+            <div style="width: 50%">
+              相关评论 相关题型 相关知识点
+            </div>
+          </div>
         </div>
-    </Frame>
+        <div style="display: flex;justify-content: center;height: 60px;align-items: center;padding: 0 10px 10px 10px;">
+          <div style="display: flex;align-items: center;">
+            <i class="iconfont icon-tijiao" @mouseover="pinglun" @mouseout="outHide" style="font-size: 40px;margin: 0 50px;"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Frame>
 </template>
 <script>
 import Frame from '@/components/frame/mainFrame.vue'
@@ -63,7 +55,7 @@ export default {
       console.log(this.$Win.win.getPosition())
       console.log(window.screen.height)
       console.log(window.screen.width)
-      this.$store.dispatch('changeTransition', 'show')
+      this.$store.dispatch('changeTransition', 'slipUp')
       // 确定新窗口位置
       // 老窗口位置
       let fatherBounds = this.$Win.win.getBounds()
@@ -95,42 +87,48 @@ export default {
       this.win.close()
     }
   },
-  components: {renderHead, userHeadInfo, Frame}
+  components: { renderHead, userHeadInfo, Frame }
 }
 </script>
 <style>
-
 .bodyStyle {
-    width: 100%;
-    height: 100%;
-    overflow-y: auto;
-    word-break: break-all;
-    border-bottom-right-radius: 3px;
-    border-bottom-left-radius: 3px;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  word-break: break-all;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
 }
+
 .flexBody {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
+
 .rowLine {
   display: flex;
   width: 100%;
   align-items: center;
   padding: 10px 0
 }
-.iconfont{
+
+.iconfont {
   cursor: pointer;
 }
-.checkBoxStyle{
+
+.checkBoxStyle {
   display: flex;
   align-items: center;
   padding: 5px 0
 }
-.el-checkbox, .el-checkbox__input {
-    white-space: normal;
+
+.el-checkbox,
+.el-checkbox__input {
+  white-space: normal;
 }
-.checkSpan{
+
+.checkSpan {
   font-weight: 900;
   margin-right: 6px;
   margin-bottom: 3px;

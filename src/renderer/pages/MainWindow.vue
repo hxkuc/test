@@ -15,6 +15,8 @@
         </div>
         <div slot="footer" style="display: flex;margin: 5px 10px;padding: 5px;align-items: center;justify-content: space-between;">
             <i class="iconfont icon-datiqia" @click="settingQuestion" style="font-size: 25px"></i>
+            <i class="iconfont icon-datiqia" @click="openDown" style="font-size: 25px"></i>
+            <i class="iconfont icon-datiqia" @click="gotos" style="font-size: 25px"></i>
             <i class="iconfont icon-shezhi2" @click="setting" style="font-size: 25px"></i>
         </div>
     </Frame>
@@ -55,6 +57,30 @@ export default {
         name: 'settingQuestion',
         maximizable: false
       })
+    },
+    openDown () {
+      this.$store.dispatch('changeTransition', 'slipUp')
+      let win = this.$Win.createWin({
+        width: 300,
+        height: 200,
+        router: '/answer',
+        name: 'setting',
+        maximizable: false,
+        alwaysOnTop: true,
+        reload: true
+      })
+      // 获取最下面的位置
+      let x = window.screen.availWidth - 300 + 5
+      let y = window.screen.availHeight - 200 + 5
+      console.log(x)
+      console.log(y)
+      win.setPosition(x, y)
+      win.show()
+    },
+    gotos () {
+      let win = this.$Win.getWinByName('setting')
+      win.show()
+      win.center()
     }
   },
   mounted: function () {
