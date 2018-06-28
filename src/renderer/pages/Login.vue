@@ -65,7 +65,7 @@ export default {
       this.$router.push('/')
     },
     register () {
-      this.$store.dispatch('changeTransition', 'rotateright')
+      this.$store.dispatch('changeTransition', 'slipRight')
       this.$router.push('/register')
     }
   },

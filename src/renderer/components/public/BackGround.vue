@@ -4,13 +4,7 @@
 <script>
 export default {
   name: 'backGround',
-  data () {
-    return {
-    }
-  },
-  methods: {
-  },
-  mounted: function () {
+  beforeCreate: function () {
     this.$Win.changePath(this)
   }
 }

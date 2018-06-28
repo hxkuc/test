@@ -1,4 +1,10 @@
 module.exports = {
+  none: {
+    appClass: '',
+    trransitionName: 'none',
+    mode: '',
+    routerClass: ''
+  },
   default: {
     appClass: 'app-default',
     trransitionName: 'default',
@@ -23,34 +29,28 @@ module.exports = {
     mode: 'out-in',
     routerClass: ''
   },
-  rotateright: {
+  slipRight: {
     appClass: 'app-default',
-    trransitionName: 'rotateright',
+    trransitionName: 'slipright',
     mode: '',
-    routerClass: 'content'
-  },
-  rotateleft: {
-    appClass: 'app-default',
-    trransitionName: 'rotateleft',
-    mode: '',
-    routerClass: 'content'
-  },
-  none: {
-    appClass: '',
-    trransitionName: 'none',
-    mode: '',
-    routerClass: ''
-  },
-  slipUp: {
-    appClass: '',
-    trransitionName: 'slipup',
-    mode: 'in-out',
     routerClass: 'content'
   },
   slipLeft: {
-    appClass: '',
+    appClass: 'app-default',
     trransitionName: 'slipleft',
-    mode: 'in-out',
+    mode: '',
+    routerClass: 'content'
+  },
+  slipUp: {
+    appClass: 'app-default',
+    trransitionName: 'slipup',
+    mode: '',
+    routerClass: 'content'
+  },
+  slipDown: {
+    appClass: 'app-default',
+    trransitionName: 'slipdown',
+    mode: '',
     routerClass: 'content'
   }
 }
