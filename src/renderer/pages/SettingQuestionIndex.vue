@@ -1,6 +1,22 @@
 <template>
   <div class="main-class">
-    <div class="markdown-body" v-html="aser"></div>
+    <div class="main-body">
+      <div></div>
+      <div></div>
+
+
+      <textarea v-model="asd"></textarea>
+    </div>
+    <div class="main-body">
+      <div class="markdown-body" v-html="aser"></div>
+    </div>
+
+
+
+
+
+
+    <!-- <div class="markdown-body" v-html="aser"></div>
     <textarea v-model="asd"></textarea>
     <el-form ref="form" label-width="80px">
       <el-form-item label="题目">
@@ -22,7 +38,7 @@
         <el-button type="primary">立即创建</el-button>
         <el-button>取消</el-button>
       </el-form-item>
-    </el-form>
+    </el-form> -->
   </div>
 </template>
 <script>
@@ -70,8 +86,14 @@ export default {
   width: 100%;
   padding: 5px;
   box-sizing: border-box;
+  display: flex;
 }
 .my-editor {
   line-height: normal;
+}
+.main-body{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
 }
 </style>
