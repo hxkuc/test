@@ -27,10 +27,10 @@
 </template>
 <script>
 // import {markdown} from 'markdown'
+import myMarked from 'marked'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/default.css'
-import 'github-markdown-css'
-import myMarked from 'marked'
+import 'github-markdown-css/github-markdown.css'
 // Set options
 // `highlight` example uses `highlight.js`
 export default {
@@ -38,7 +38,7 @@ export default {
   data () {
     return {
       content: '',
-      asd: ''
+      asd: '678'
     }
   },
   computed: {

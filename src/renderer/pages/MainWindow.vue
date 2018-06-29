@@ -59,6 +59,15 @@ export default {
       })
     },
     openDown () {
+      const TWEEN = require('@tweenjs/tween.js')
+
+      function animate (time) {
+        requestAnimationFrame(animate)
+        TWEEN.update(time)
+      }
+      let x = window.screen.availWidth - 300 + 5
+      let y = window.screen.availHeight - 200 + 5
+
       this.$store.dispatch('changeTransition', 'slipUp')
       let win = this.$Win.createWin({
         width: 300,
@@ -69,13 +78,23 @@ export default {
         alwaysOnTop: true,
         reload: true
       })
-      // 获取最下面的位置
-      let x = window.screen.availWidth - 300 + 5
-      let y = window.screen.availHeight - 200 + 5
-      console.log(x)
-      console.log(y)
-      win.setPosition(x, y)
       win.show()
+      // 获取最下面的位置
+      let a = win.getPosition()
+      var tween = new TWEEN.Tween({
+        x: a[0],
+        y: a[1],
+        w: 760,
+        h: 550
+      })
+        .to({ x: x, y: y, w: 300, h: 200 }, 3500)
+        .onUpdate(function (a) {
+          console.log(a)
+          win.setSize(parseInt(a.w), parseInt(a.h))
+          win.setPosition(parseInt(a.x), parseInt(a.y))
+        }).start()
+      tween.easing(TWEEN.Easing.Bounce.Out)
+      animate()
     },
     gotos () {
       let win = this.$Win.getWinByName('setting')
