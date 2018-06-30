@@ -51,8 +51,8 @@ export default {
     settingQuestion () {
       this.$store.dispatch('changeTransition', 'none')
       this.$Win.openWin({
-        width: 760,
-        height: 550,
+        width: 900,
+        height: 650,
         router: '/settingQuestion/index',
         name: 'settingQuestion',
         maximizable: false
