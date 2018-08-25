@@ -30,8 +30,8 @@ export default {
     gotoanswer () {
       this.$store.dispatch('changeTransition', 'default')
       this.$Win.openWin({
-        width: 500,
-        height: 350,
+        width: 450,
+        height: 400,
         router: '/answer',
         name: 'answer',
         maximizable: false,
@@ -51,8 +51,8 @@ export default {
     settingQuestion () {
       this.$store.dispatch('changeTransition', 'none')
       this.$Win.openWin({
-        width: 350,
-        height: 600,
+        width: 430,
+        height: 610,
         router: '/settingQuestion/index',
         name: 'settingQuestion',
         maximizable: false

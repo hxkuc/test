@@ -25,6 +25,11 @@ export default {
 /* CSS */
 #app{
     width: 100%;
-    height: 100%
+    height: 100%;
+    font-family: 'lixuke'
+}
+@font-face {
+  font-family: 'lixuke';
+  src: url('./assets/font/lixuke.ttf')
 }
 </style>

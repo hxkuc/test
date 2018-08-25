@@ -1,33 +1,40 @@
 <template>
   <div class="main-class">
     <div class="main-body">
-      <h3 style="text-align: center;padding-bottom: 15px">出题</h3>
-      <el-input type="textarea" v-model="asd" placeholder="请添加题目" :autosize="{ minRows: 3, maxRows: 8}"></el-input>
+      
       <div style="display: flex;flex-direction: column;">
-        <div style="display: flex;justify-content: space-between;flex-shrink: 0;">
-          <el-button type="primary" size="mini" style="margin: 5px 0" @click="addAnswer">添加答案</el-button>
-          <el-button type="primary" size="mini" style="margin: 5px 0" @click="openYuLan">查看预览</el-button>
-        </div>
+        <el-input type="textarea" v-model="asd" placeholder="请添加题目" :autosize="{ minRows: 6, maxRows: 8}" resize="none"></el-input>
         
-        <div class="answer-div" v-for="(item, key) in answerArr">
-          <el-input style="border-radius: 0px" type="textarea" v-model="answerArr[key]['value']" :autosize="{ minRows:1 , maxRows: 6}"></el-input>
-          <div style="text-align: right;padding: 3px;">
-            <i class="el-icon-remove" style="font-size: 20px;cursor: pointer;" @click="deletes(key)"></i>
-            <i class="el-icon-circle-check" style="font-size: 20px;cursor: pointer;" :class="{active: item['select']}" @click="selectthis(key)"></i>
-            <!-- <i class="iconfont icon-xiangshangshouqi-yuankuang" style="font-size: 20px;cursor: pointer;" @click="deletes(key)"></i>
-            <i class="iconfont icon-xiangxiazhankai-yuankuang" style="font-size: 20px;cursor: pointer;" @click="deletes(key)"></i> -->
+        
+        <div style="height: 100%;overflow: auto;">
+          <div class="answer-div" v-for="(item, key) in answerArr">
+            <div>
+              <p style="padding: 5px 0">
+                <span style="font-size: 18px">{{ziMuArr[key]}}:</span>
+                <i class="iconfont icon-jia2" style="font-size: 14px;cursor: pointer;" @click="add(key)"></i>
+                <i class="iconfont icon-shanchu2" style="font-size: 14px;cursor: pointer;" @click="deletes(key)"></i>
+                <i class="iconfont icon-xuanze1" style="font-size: 14px;cursor: pointer;" :class="{active: item['select']}" @click="selectthis(key)"></i>
+              </p>
+              <el-input style="border-radius: 0px" type="textarea" v-model="answerArr[key]['value']" :autosize="{ minRows:2 , maxRows: 6}" resize="none"></el-input>
+            </div>
           </div>
+        </div>
+
+        <div style="display: flex;justify-content: flex-end;flex-shrink: 0;">
+          <el-button type="primary" size="mini" style="margin: 5px" @click="addAnswer">保存</el-button>
+          <el-button type="primary" size="mini" style="margin: 5px" @click="openYuLan">发布</el-button>
         </div>
       </div>
     </div>
 
 
     <div class="main-body" v-show="isYuLan">
-      <h3 style="text-align: center;padding-bottom: 15px">预览</h3>
-      <div class="markdown-body" v-html="aser" style="padding: 5px;border-bottom: 1px dashed;font-size: 14px;"></div>
+      <div class="markdown-body" v-html="aser" style="padding: 5px;border-bottom: 1px dashed;font-size: 20px;font-family:lixuke;text-align:center;font-weight:900"></div>
       <div style="padding: 5px">
-        <div class="markdown-body" v-for="(item, key) in answeredArr" style="padding:0 5px;display: flex;font-size: 14px">
-          <span style="margin-right: 5px">{{ziMuArr[key]}}.</span><div v-html="answeredArr[key]"></div>
+        <div class="markdown-body" v-for="(item, key) in answeredArr" style="padding:10px 5px;display: flex;font-size: 18px;font-family:lixuke;align-items: baseline;">
+          <i v-show="item.select" class="iconfont icon-right" style="font-size: 14px;color:green"></i>
+          <span style="margin-right: 5px">{{ziMuArr[key]}}:</span>
+          <div v-html="item.value"></div>
         </div>
       </div>
     </div>
@@ -74,6 +81,12 @@ export default {
       }
       this.answerArr.push({select: false, value: ''})
     },
+    add (key) {
+      if (this.answerArr.length >= 6) {
+        return false
+      }
+      this.answerArr.splice(key + 1, 0, {select: false, value: ''})
+    },
     deletes (key) {
       this.answerArr.splice(key, 1)
     },
@@ -82,9 +95,9 @@ export default {
     },
     openYuLan () {
       if (this.isYuLan) {
-        this.$Win.win.setSize(350, 500)
+        this.$Win.win.setSize(430, 610)
       } else {
-        this.$Win.win.setSize(700, 500)
+        this.$Win.win.setSize(860, 610)
       }
       this.isYuLan = !this.isYuLan
     }
@@ -95,7 +108,12 @@ export default {
       return myMarked(this.asd)
     },
     answeredArr: function () {
-      return this.answerArr.map(row => myMarked(row.value))
+      return this.answerArr.map(row => {
+        return {
+          select: row.select,
+          value: myMarked(row.value)
+        }
+      })
     }
   }
 }
@@ -112,7 +130,7 @@ export default {
   line-height: normal;
 }
 .main-body{
-  width: 330px;
+  width: 410px;
   display: flex;
   flex-direction: column;
   padding: 5px;
@@ -139,7 +157,7 @@ textarea{
   flex-shrink: 0;
 }
 
-.answer-div .el-textarea__inner {
-  
-}
+/* .el-textarea textarea {
+  border: none
+} */
 </style>

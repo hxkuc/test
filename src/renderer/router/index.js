@@ -32,11 +32,17 @@ export default new Router({
     {
       path: '/answer',
       name: 'answer',
+      meta: {
+        title: '答题'
+      },
       component: () => import('@/pages/BeginAnswer')
     },
     {
       path: '/answering',
       name: 'answering',
+      meta: {
+        title: '答题中...'
+      },
       component: () => import('@/pages/Answering')
     },
     {
@@ -62,6 +68,9 @@ export default new Router({
       children: [
         {
           path: 'index',
+          meta: {
+            title: '出题'
+          },
           component: () => import('@/pages/SettingQuestionIndex')
         }
       ]

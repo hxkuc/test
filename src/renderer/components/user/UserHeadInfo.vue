@@ -2,7 +2,7 @@
   <div class="userInfo" :style="{width: styleWidth}">
       <img @click="gotoHome" src="http://p1.qzone.la/upload/20150102/a3zs6l69.jpg" class="userImg">
       <div class="userRemarks">
-          <div class="userName">我爱你中国</div>
+          <div class="userName">张三的名字</div>
           <div class="remark">艺术源于生活！</div>
       </div>
   </div>
@@ -34,8 +34,8 @@ export default {
 }
 .userImg{
 	margin-left: 10px;
-	width: 40px;
-	height: 40px;
+	width: 50px;
+	height: 50px;
 	border-radius: 50%;
 	-webkit-app-region: no-drag;
 	box-shadow: 0px 3px 13px 3px rgba(0, 0, 0, 0.3)
@@ -48,12 +48,12 @@ export default {
 }
 .userName{
 	height: 20px;
-	font-size: 12px;
+	font-size: 16px;
 	line-height: 20px;
 	font-weight: 900;
 }
 .remark{
-	font-size: 10px;
+	font-size: 14px;
 	color: #cecece;
 }
 </style>
